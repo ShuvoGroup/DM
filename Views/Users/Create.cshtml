@@ -1,0 +1,207 @@
+﻿@model DM.Models.User
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>User</title>
+</head>
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-fluid">
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <form>
+                            <div class="card-body">
+                                <h4 class="card-title">Create User Manage</h4>
+                                <div class="alert alert-info alert-dismissible fade show m-t-25" role="alert">
+                                    <span class="badge badge-info"><i class="fas fa-info"></i></span>
+                                    <strong>Form Action at mulitple space top,bottom and left,right.</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="d-flex no-block align-items-center">
+                                    <div class="action-form">
+                                        <div class="form-group m-b-0 text-center">
+                                            <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+                                            @*@Html.ActionLink("Save", "Edit", "Users", new { @class = "btn btn-info waves-effect waves-light" })*@
+
+                                            <button type="submit" class="btn btn-dark waves-effect waves-light">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-info " aria-haspopup="true" aria-expanded="false"> Back	</button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-danger " aria-haspopup="true" aria-expanded="false"> Reset	</button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-success " aria-haspopup="true" aria-expanded="false"> Exit	</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <div class="row m-auto">
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">Name</label>
+
+
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", id = "fname3" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                                            @*<input type="text" name="" class="form-control" id="fname3" placeholder="">*@
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">Role ID</label>
+
+                                            @Html.EditorFor(model => model.Role_id, new { htmlAttributes = new { @class = "form-control", id = "fname3" } })
+                                            @Html.ValidationMessageFor(model => model.Role_id, "", new { @class = "text-danger" })
+                                            @*<select class="js-select2">
+                                                    <option value="selected">Select your Role ID</option>
+                                                    <option>45</option>
+                                                    <option>45</option>
+                                                    <option>45</option>
+                                                    <option>45</option>
+                                                </select>*@
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">Admin ID</label>
+                                            @Html.EditorFor(model => model.Admin_id, new { htmlAttributes = new { @class = "form-control", id = "fname3" } })
+                                            @Html.ValidationMessageFor(model => model.Admin_id, "", new { @class = "text-danger" })
+                                            @*<select class="js-select2">
+                                                    <option value="selected">Select your Admin ID</option>
+                                                    <option>45</option>
+                                                    <option>45</option>
+                                                    <option>45</option>
+                                                    <option>45</option>
+                                                </select>*@
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">E-mail</label>
+
+
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "fname3" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                            @*<input type="email" name="" class="form-control" id="fname3" placeholder="">*@
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">Address</label>
+                                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", id = "fname3", aria_label = "With textarea" } })
+                                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                            @*<input type="text" name="" class="form-control" id="fname3" placeholder="">*@
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">Password</label>
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", id = "fname3" } })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            @*<input type="text" name="" class="form-control" id="fname3" placeholder="">*@
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="fname3" class="control-label col-form-label">Upload Image</label>
+                                            <input type="file" name="" class="form-control" id="fname3" />
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label class="control-label col-form-label">Phone</label>
+                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", id = "fname3" } })
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                            @*<textarea class="form-control" aria-label="With textarea" placeholder=""></textarea>*@
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label class="control-label col-form-label">Publication Status</label>
+                                            <div class="form-check">
+                                                <div class="custom-control custom-radio" style="float:left;">
+                                                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked">
+                                                    <label class="custom-control-label" for="customControlValidation2">Active</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <div class="custom-control custom-radio" style="float:right; ">
+                                                    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked">
+                                                    <label class="custom-control-label" for="customControlValidation3">Inactive</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <div class="d-flex no-block align-items-center">
+                                    <div class="action-form">
+                                        <div class="form-group m-b-0 text-center">
+                                            <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+                                            <button type="submit" class="btn btn-dark waves-effect waves-light">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-info " aria-haspopup="true" aria-expanded="false"> Back	</button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-danger " aria-haspopup="true" aria-expanded="false"> Reset	</button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-success " aria-haspopup="true" aria-expanded="false"> Exit	</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+    }
+</body>
+</html>

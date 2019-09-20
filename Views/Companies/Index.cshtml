@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DM.Models.Company>
+
+@{
+     ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid">
+        <!-- Column rendering --> <!-- DOM / jQuery events -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">View Company Information</h4>
+                        <h6 class="card-subtitle"></h6>
+                        <div class="table-responsive">
+                            <table id="dom_jq_event" class="table table-striped table-bordered display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Mobile Number </th>
+                                        <th>Email</th>
+                                        <th>Trade License</th>
+                                        <th>eTIN</th>
+                                        <th>Image</th>
+                                        <th>Status</th>
+                                        <th>---Action---</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Phone)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Trade_License)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.eTIN_ID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Logo)
+                                            </td>
+                                            <td>
+                                                <a href="#"><span class="label label-table label-info">inactive</span></a>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id },new { @class = "label label-table label-success" }) 
+                                              
+                                                @Html.ActionLink("Delete", "Delete", "Companies", new { id = item.Id },new { @class = "label label-table label-danger" })
+                                            </td>
+                                        </tr>
+                                    }
+@*<td>
+                                            <a href="#"><span class="label label-table label-info">inactive</span></a>
+                                        </td>
+                                        <td>
+                                            <a href="#"><span class="label label-table label-success">Edit</span></a>
+                                            <a href="#"><span class="label label-table label-danger">Delete</span></a>
+                                        </td>
+                                    </tr>*@
+
+                                  
+
+                                </tbody>
+                                <tfoot>
+                                   
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End row -->
+    </div>
